@@ -8,6 +8,7 @@ import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "src/app/app.component"
 import { AuthModule } from "src/app/auth/auth.module"
 import { EffectsModule } from "@ngrx/effects"
+import { HeaderModule } from "src/app/shared/modules/header/header.module"
 
 @NgModule({
     declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { EffectsModule } from "@ngrx/effects"
             trace: false,
             traceLimit: 75,
         }),
+        HeaderModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

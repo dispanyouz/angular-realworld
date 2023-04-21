@@ -11,6 +11,7 @@ import { EffectsModule } from "@ngrx/effects"
 import { HeaderModule } from "src/app/shared/modules/header/header.module"
 import { PersistanceService } from "src/app/shared/services/persistance.service"
 import { AuthInterceptor } from "src/app/shared/services/authInterceptor.service"
+import { GlobalFeedModule } from "src/app/globalFeed/globalFeed.module"
 
 @NgModule({
     declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { AuthInterceptor } from "src/app/shared/services/authInterceptor.service
             traceLimit: 75,
         }),
         HeaderModule,
+        GlobalFeedModule,
     ],
     providers: [
         PersistanceService,

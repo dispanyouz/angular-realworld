@@ -33,9 +33,7 @@ export class LoginComponent implements OnInit {
         this.initializeValues()
     }
     initializeValues(): void {
-        // @ts-ignore
         this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
-        // @ts-ignore
         this.backendErrors$ = this.store.pipe(select(validationErrorsSelector))
     }
     initializeForm(): void {

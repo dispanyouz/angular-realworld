@@ -11,7 +11,6 @@ export class PersistanceService {
     }
     get(key: string): any {
         try {
-            // @ts-ignore
             return JSON.parse(localStorage.getItem(key))
         } catch (e) {
             console.error("Error getting data from LocalStorage", e)

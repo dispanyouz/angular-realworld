@@ -1,7 +1,7 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
 import { select, Store } from "@ngrx/store"
-import { Observable, Subscription } from "rxjs"
-import { ActivatedRoute, Params, Router } from "@angular/router"
+import { Observable } from "rxjs"
+import { ActivatedRoute, Router } from "@angular/router"
 
 import { GetFeedResponseInterface } from "src/app/shared/modules/feed/types/getFeedResponse.interface"
 import {
@@ -16,14 +16,13 @@ import { limit } from "src/limit"
     selector: "mc-feed",
     templateUrl: "./feed.component.html",
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit {
     @Input("apiUrl") apiUrlProps: string
     isLoading$: Observable<boolean>
     error$: Observable<string | null>
     feed$: Observable<GetFeedResponseInterface | null>
     limitFeed = limit
     baseUrl: string
-    queryParamsSubscription: Subscription
     currentPage: number
     constructor(
         private store: Store,
@@ -32,11 +31,7 @@ export class FeedComponent implements OnInit, OnDestroy {
     ) {}
     ngOnInit(): void {
         this.initializeValues()
-        this.initializeListeners()
-    }
-
-    ngOnDestroy(): void {
-        this.queryParamsSubscription.unsubscribe()
+        this.fetchFeed()
     }
 
     initializeValues(): void {
@@ -47,14 +42,5 @@ export class FeedComponent implements OnInit, OnDestroy {
     }
     fetchFeed(): void {
         this.store.dispatch(getFeedAction({ url: this.apiUrlProps }))
-    }
-
-    initializeListeners(): void {
-        this.queryParamsSubscription = this.route.queryParams.subscribe(
-            (params: Params) => {
-                // this.currentPage = Number(params.page || "1")
-                this.fetchFeed()
-            }
-        )
     }
 }

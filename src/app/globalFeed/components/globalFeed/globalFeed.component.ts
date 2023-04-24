@@ -1,6 +1,6 @@
 import { Component } from "@angular/core"
 @Component({
-    selector: "mc-global-feed",
+    selector: "mc-global-article",
     templateUrl: "./globalFeed.component.html",
 })
 export class GlobalFeedComponent {

@@ -12,6 +12,7 @@ import { HeaderModule } from "src/app/shared/modules/header/header.module"
 import { PersistanceService } from "src/app/shared/services/persistance.service"
 import { AuthInterceptor } from "src/app/shared/services/authInterceptor.service"
 import { GlobalFeedModule } from "src/app/globalFeed/globalFeed.module"
+import { ArticleModule } from "src/app/article/article.module"
 
 @NgModule({
     declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { GlobalFeedModule } from "src/app/globalFeed/globalFeed.module"
         }),
         HeaderModule,
         GlobalFeedModule,
+        ArticleModule,
     ],
     providers: [
         PersistanceService,

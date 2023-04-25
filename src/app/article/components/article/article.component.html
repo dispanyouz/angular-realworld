@@ -16,19 +16,25 @@
                 </div>
                 <span *ngIf="isAuthor$ | async">
                     <a
-                        [routerLink]="['/articles', article.slug, '/edit']"
+                        [routerLink]="['/articles', article.slug, 'edit']"
                         class="btn btn-outline-secondary btn-sm"
                     >
                         <i class="ion-edit"></i>
                         Edit Article
                     </a>
-                    DELETE
+                    <button
+                        class="btn btn-outline-danger btn-sm"
+                        (click)="deleteArticle()"
+                    >
+                        Delete Article
+                    </button>
                 </span>
             </div>
         </div>
     </div>
     <div class="container page">
         <div *ngIf="isLoading$ | async">Loading...</div>
+        <div *ngIf="error$ | async">Error happened</div>
         <div class="row article-content" *ngIf="article">
             <div class="col-xs-12">
                 <div>

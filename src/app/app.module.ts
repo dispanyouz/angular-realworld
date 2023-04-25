@@ -3,15 +3,16 @@ import { BrowserModule } from "@angular/platform-browser"
 import { StoreModule } from "@ngrx/store"
 import { StoreDevtoolsModule } from "@ngrx/store-devtools"
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http"
+import { EffectsModule } from "@ngrx/effects"
 
 import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "src/app/app.component"
 import { AuthModule } from "src/app/auth/auth.module"
-import { EffectsModule } from "@ngrx/effects"
 import { HeaderModule } from "src/app/shared/modules/header/header.module"
 import { PersistanceService } from "src/app/shared/services/persistance.service"
 import { AuthInterceptor } from "src/app/shared/services/authInterceptor.service"
 import { GlobalFeedModule } from "src/app/globalFeed/globalFeed.module"
+import { CreateArticleModule } from "src/app/createArticle/createArticle.module"
 import { ArticleModule } from "src/app/article/article.module"
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ArticleModule } from "src/app/article/article.module"
         }),
         HeaderModule,
         GlobalFeedModule,
+        CreateArticleModule,
         ArticleModule,
     ],
     providers: [

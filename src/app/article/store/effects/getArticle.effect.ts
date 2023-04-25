@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { catchError, map, of, switchMap } from "rxjs"
 
-import { ArticleService } from "src/app/shared/services/article.service"
+import { ArticleService as SharedArticleService } from "src/app/shared/services/article.service"
 import {
     getArticleAction,
     getArticleFailureAction,
@@ -16,7 +16,7 @@ export class GetArticleEffect {
         this.actions$.pipe(
             ofType(getArticleAction),
             switchMap(({ slug }) => {
-                return this.articleService.getArticle(slug).pipe(
+                return this.sharedArticleService.getArticle(slug).pipe(
                     map((article: ArticleInterface) => {
                         return getArticleSuccessAction({ article })
                     }),
@@ -30,6 +30,6 @@ export class GetArticleEffect {
 
     constructor(
         private actions$: Actions,
-        private articleService: ArticleService
+        private sharedArticleService: SharedArticleService
     ) {}
 }

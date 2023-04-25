@@ -12,6 +12,7 @@ import {
 } from "src/app/article/store/selectors"
 import { currentUserSelector } from "src/app/auth/store/selectors"
 import { CurrentUserInterface } from "src/app/shared/types/currentUser.interface"
+import { deleteArticleAction } from "src/app/article/store/actions/deleteArticle.action"
 @Component({
     selector: "mc-article",
     templateUrl: "./article.component.html",
@@ -40,17 +41,17 @@ export class ArticleComponent implements OnInit, OnDestroy {
         this.slug = this.route.snapshot.paramMap.get("slug")
         this.isLoading$ = this.store.pipe(select(isLoadingSelector))
         this.error$ = this.store.pipe(select(errorSelector))
-        this.isAuthor$ = combineLatest(
+        this.isAuthor$ = combineLatest([
             this.store.pipe(select(articleSelector)),
-            this.store.pipe(select(currentUserSelector))
-        ).pipe(
+            this.store.pipe(select(currentUserSelector)),
+        ]).pipe(
             map(
                 ([article, currentUser]: [
                     ArticleInterface | null,
                     CurrentUserInterface | null
                 ]) => {
                     if (!article || !currentUser) {
-                        return true
+                        return false
                     }
                     return currentUser.username === article.author.username
                 }
@@ -62,11 +63,14 @@ export class ArticleComponent implements OnInit, OnDestroy {
         this.store.dispatch(getArticleAction({ slug: this.slug }))
     }
 
-    initializeListeners() {
+    initializeListeners(): void {
         this.articleSubscription = this.store
             .pipe(select(articleSelector))
             .subscribe((article: ArticleInterface | null) => {
                 this.article = article
             })
+    }
+    deleteArticle(): void {
+        this.store.dispatch(deleteArticleAction({ slug: this.slug }))
     }
 }

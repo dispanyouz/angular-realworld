@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { FormBuilder, Validators } from "@angular/forms"
+import { FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { select, Store } from "@ngrx/store"
 import { Observable } from "rxjs"
 
@@ -17,9 +17,9 @@ import { BackendErrorsInterface } from "src/app/shared/types/backendErrors.inter
     templateUrl: "./register.component.html",
 })
 export class RegisterComponent implements OnInit {
-    form: any
+    form: FormGroup
     isSubmitting$: Observable<boolean> | undefined
-    backendErrors$: Observable<BackendErrorsInterface | null> | undefined
+    backendErrors$: Observable<BackendErrorsInterface | null>
 
     constructor(
         private fb: FormBuilder,
@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log(this.form.valid)
         const request: RegisterRequestInterface = {
             user: this.form.value,
         }

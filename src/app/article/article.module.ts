@@ -10,6 +10,7 @@ import { GetArticleEffect } from "src/app/article/store/effects/getArticle.effec
 import { ArticleComponent } from "src/app/article/components/article/article.component"
 import { ArticleService } from "src/app/article/services/article.service"
 import { DeleteArticleEffect } from "src/app/article/store/effects/deleteArticle.effect"
+import { TagListModule } from "src/app/shared/modules/tagList/tagList.module"
 
 const routes = [
     {
@@ -24,6 +25,7 @@ const routes = [
         StoreModule.forFeature("article", reducers),
         RouterModule,
         RouterModule.forChild(routes),
+        TagListModule,
     ],
     declarations: [ArticleComponent],
     exports: [],

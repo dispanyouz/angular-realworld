@@ -14,7 +14,7 @@ export class EditArticleService {
         slug: string,
         articleInput: ArticleInputInterface
     ): Observable<ArticleInterface> {
-        const fullUrl = `${apiUrl}/articles${slug}`
+        const fullUrl = `${apiUrl}/articles/${slug}`
 
         return this.http
             .put<SaveArticleResponseInterface>(fullUrl, {

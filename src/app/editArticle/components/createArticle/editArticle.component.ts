@@ -7,7 +7,6 @@ import {
     validationErrorsSelector,
 } from "src/app/createArticle/store/selectors"
 import { ArticleInputInterface } from "src/app/shared/types/articleInput.interface"
-import { createArticleAction } from "src/app/createArticle/store/actions/createArticle.action"
 import { ActivatedRoute } from "@angular/router"
 import { getArticleAction } from "src/app/editArticle/store/actions/getArticle.action"
 import { articleSelector } from "src/app/editArticle/store/selectors"

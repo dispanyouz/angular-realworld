@@ -9,6 +9,7 @@ import { reducers } from "src/app/shared/modules/feed/store/reducers"
 import { FeedService } from "src/app/shared/modules/feed/services/feed.service"
 import { RouterModule } from "@angular/router"
 import { PaginationModule } from "src/app/shared/modules/pagination/pagination.module"
+import { TagListModule } from "src/app/shared/modules/tagList/tagList.module"
 @NgModule({
     imports: [
         CommonModule,
@@ -16,6 +17,7 @@ import { PaginationModule } from "src/app/shared/modules/pagination/pagination.m
         StoreModule.forFeature("feed", reducers),
         RouterModule,
         PaginationModule,
+        TagListModule,
     ],
     declarations: [FeedComponent],
     exports: [FeedComponent],

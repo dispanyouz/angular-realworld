@@ -2,12 +2,6 @@ import { Injectable } from "@angular/core"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { catchError, map, of, switchMap } from "rxjs"
 
-import {
-    getFeedAction,
-    getFeedFailureAction,
-    getFeedSuccessAction,
-} from "src/app/shared/modules/feed/store/actions/getFeed.action"
-import { GetFeedResponseInterface } from "src/app/shared/modules/feed/types/getFeedResponse.interface"
 import { PopularTagsService } from "src/app/shared/modules/popularTags/services/popularTags.service"
 import {
     getPopularTagsAction,

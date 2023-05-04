@@ -4,6 +4,7 @@ import { StoreModule } from "@ngrx/store"
 import { StoreDevtoolsModule } from "@ngrx/store-devtools"
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http"
 import { EffectsModule } from "@ngrx/effects"
+import { StoreRouterConnectingModule, routerReducer } from "@ngrx/router-store"
 
 import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "src/app/app.component"
@@ -23,7 +24,7 @@ import { EditArticleModule } from "src/app/editArticle/editArticle.module"
         AppRoutingModule,
         AuthModule,
         HttpClientModule,
-        StoreModule.forRoot({}),
+        StoreModule.forRoot({ router: routerReducer }),
         EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
@@ -32,6 +33,7 @@ import { EditArticleModule } from "src/app/editArticle/editArticle.module"
             trace: false,
             traceLimit: 75,
         }),
+        StoreRouterConnectingModule.forRoot(),
         HeaderModule,
         GlobalFeedModule,
         CreateArticleModule,

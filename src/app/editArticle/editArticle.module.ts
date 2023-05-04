@@ -10,7 +10,7 @@ import { EditArticleService } from "src/app/editArticle/services/editArticle.ser
 import { ArticleService as SharedArticleService } from "src/app/shared/services/article.service"
 import { GetArticleEffect } from "src/app/editArticle/store/effects/getArticle.effect"
 import { UpdateArticleEffect } from "src/app/editArticle/store/effects/updateArticle.effect"
-import { EditArticleComponent } from "src/app/editArticle/components/createArticle/editArticle.component"
+import { EditArticleComponent } from "src/app/editArticle/components/editArticle/editArticle.component"
 
 const routes = [
     {

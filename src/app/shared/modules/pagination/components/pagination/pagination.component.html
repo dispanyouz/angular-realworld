@@ -2,7 +2,7 @@
     <li
         *ngFor="let page of pages"
         class="page-item"
-        [ngClass]="{ active: currenPageProps === page }"
+        [ngClass]="{ active: currentPageProps === page }"
     >
         <a
             [routerLink]="urlProps"

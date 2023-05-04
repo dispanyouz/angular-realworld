@@ -8,7 +8,7 @@ import { UtilsService } from "src/app/shared/services/utils.service"
 export class PaginationComponent implements OnInit {
     @Input("total") totalProps: number
     @Input("limitFeed") limitFeedProps: number
-    @Input("currentPage") currenPageProps: number
+    @Input("currentPage") currentPageProps: number
     @Input("url") urlProps: string
     pagesCount: number
     pages: number[]

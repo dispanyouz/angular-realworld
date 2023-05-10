@@ -12,7 +12,7 @@ import {
 } from "src/app/auth/store/actions/getCurrentUser.action"
 
 @Injectable()
-export class getCurrentUserEffect {
+export class GetCurrentUserEffect {
     getCurrentUser$ = createEffect(() =>
         this.actions$.pipe(
             ofType(getCurrentUserAction),

@@ -10,6 +10,7 @@ import { FeedService } from "src/app/shared/modules/feed/services/feed.service"
 import { RouterModule } from "@angular/router"
 import { PaginationModule } from "src/app/shared/modules/pagination/pagination.module"
 import { TagListModule } from "src/app/shared/modules/tagList/tagList.module"
+import { AddToFavoritesModule } from "src/app/shared/modules/addToFavorites/addToFavorites.module"
 @NgModule({
     imports: [
         CommonModule,
@@ -18,6 +19,7 @@ import { TagListModule } from "src/app/shared/modules/tagList/tagList.module"
         RouterModule,
         PaginationModule,
         TagListModule,
+        AddToFavoritesModule,
     ],
     declarations: [FeedComponent],
     exports: [FeedComponent],
